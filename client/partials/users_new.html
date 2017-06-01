@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Bucket Lists</h1>
+    <div>
+      <h4>Create User</h4>
+      <form ng-submit = "UC.create(UC.newUser)">
+        <div>
+          <label>Name:</label>
+          <input type="text" ng-model = "UC.newUser.name" />
+        </div>
+        <input type="submit" value="Create" />
+      </form>
+    </div>
+    <!-- <div>
+      <h4>Login</h4>
+      <form ng-submit = "UC.login(UC.loginUser)">
+        <div>
+          <label>Name:</label>
+          <input type="text" ng-model = "UC.loginUser.name" />
+        </div>
+        <input type="submit" value="Login" />
+      </form>
+    </div> -->
+  </body>
+</html>

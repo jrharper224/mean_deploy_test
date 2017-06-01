@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body ng-init="UC.session()">
+    <div>
+      <h4>Bucket List</h4>
+      <a href="#/dashboard">Home</a>
+      <a href="#" ng-click="UC.logout()">Logout</a>
+    </div>
+    <div>
+      <h1>Welcome, {{ UC.current_user.name }}</h1>
+    </div>
+    <div ng-controller = "UsersController as UC" ng-init = "UC.index()">
+      <form ng-submit="UC.createItem(newItem)">
+        <input type="text" placeholder="Title" ng-model = "UC.newItem.title" />
+        <input type="text" placeholder="Description" ng-model = "UC.newItem.description" />
+        <select ng-model = "UC.newItem.user">
+          <option ng-repeat = "user in UC.users">
+            {{user.name}}
+          </option>
+        </select>
+        <input type="submit" value="Add to List" />
+      </form>
+    </div>
+    <div ng-init = "UC.itemIndex()">
+      <h4>Before I die I want to...</h4>
+      <p ng-repeat = "item in UC.items">{{creator.name}} | {{item.title}} - {{item.description}}
+
+      </p>
+    </div>
+    <div ng-init = "UC.index()">
+      <h3>List of other users (click to view profile)</h3>
+      <p ng-repeat = "user in UC.users"><a href = "#/users/{{UC.user.id}}">{{user.name}}</a>
+
+      </p>
+    </div>
+  </body>
+</html>
